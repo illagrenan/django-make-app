@@ -1,0 +1,35 @@
+# -*- encoding: utf-8 -*-
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import DetailView, ListView, UpdateView, CreateView
+from django.views.generic.edit import DeleteView
+
+from .models import {% for model in models %}{{ model.name }}{% if not loop.last %}, {% endif %}{% endfor %}
+from .forms import {% for model in models %}{{ model.name }}Form{% if not loop.last %}, {% endif %}{% endfor %}
+
+{% for model in models %}
+# - - - - - - - - - - - -
+# Views for {{ model.name }}
+# - - - - - - - - - - - -
+class {{ model.name }}CreateView(CreateView):
+    model = {{ model.name }}
+    form_class = {{ model.name }}Form
+
+class {{ model.name }}ListView(ListView):
+        model = {{ model.name }}
+
+class {{ model.name }}DetailView(DetailView):
+    model = {{ model.name }}
+
+
+class {{ model.name }}UpdateView(UpdateView):
+    model = {{ model.name }}
+    form_class = {{ model.name }}Form
+
+
+class {{ model.name }}DeleteView(DeleteView):
+    model = {{ model.name }}
+    success_url = reverse_lazy('{{ app_name }}:{{ model.name|lower }}_list')
+{% endfor %}

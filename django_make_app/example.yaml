@@ -1,0 +1,8 @@
+app_name: web
+models:
+  - User:
+    - name:char
+    - email:char
+  - Book:
+    - library:fk
+  - Library

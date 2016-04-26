@@ -1,0 +1,27 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+from django.conf.urls import patterns, url, include
+from rest_framework import routers
+
+from .api import {% for model in models %}{{ model.name }}ViewSet{% if not loop.last %}, {% endif %}{% endfor %}
+from .views import {% for model in models %}{{ model.name }}CreateView, {{ model.name }}ListView, {{ model.name }}DetailView, {{ model.name }}UpdateView, {{ model.name }}DeleteView{% if not loop.last %}, \
+{% endif %}{% endfor %}
+
+router = routers.DefaultRouter()
+
+{% for model in models %}router.register(r'{{ model.name|lower }}', {{ model.name }}ViewSet)
+{% endfor %}
+
+urlpatterns = [
+    url(r'^api/v1/', include(router.urls)),
+{% for model in models %}
+    url(r'^{{ model.name|lower }}/create/$', {{ model.name }}CreateView.as_view(), name='{{ model.name|lower }}_create'),
+    url(r'^{{ model.name|lower }}/list/$', {{ model.name }}ListView.as_view(), name='{{ model.name|lower }}_list'),
+    url(r'^{{ model.name|lower }}/detail/(?P<pk>\d+)/$', {{ model.name }}DetailView.as_view(), name='{{ model.name|lower }}_detail'),
+    url(r'^{{ model.name|lower }}/update/(?P<pk>\d+)/$', {{ model.name }}UpdateView.as_view(), name='{{ model.name|lower }}_update'),
+    url(r'^{{ model.name|lower }}/delete/(?P<pk>\d+)/$', {{ model.name }}DeleteView.as_view(), name='{{ model.name|lower }}_delete'),
+{% endfor %}
+]

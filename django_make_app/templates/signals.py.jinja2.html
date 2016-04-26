@@ -1,0 +1,8 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+import django.dispatch
+
+{{ app_name }}_example_signal = django.dispatch.Signal(providing_args=['arg_1', 'arg_2'])

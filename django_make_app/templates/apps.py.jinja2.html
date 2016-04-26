@@ -1,0 +1,18 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+from django.apps import AppConfig
+
+
+class {{ app_name|capitalize }}AppConfig(AppConfig):
+    name = '{{ app_name }}'
+    verbose_name = '{{ app_name|capitalize }}'
+
+    def ready(self):
+        # noinspection PyUnresolvedReferences
+        from . import receivers
+
+        # noinspection PyUnresolvedReferences
+        from .checks import {{ app_name }}_example_check

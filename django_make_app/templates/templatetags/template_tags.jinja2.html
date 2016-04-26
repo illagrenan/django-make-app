@@ -1,0 +1,13 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+from django.template import Library
+
+register = Library()
+
+
+@register.filter
+def dummy_filter(a, b):
+    return "a is {} and b is {}".format(a, b)

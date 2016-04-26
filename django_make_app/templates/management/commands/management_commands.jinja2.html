@@ -1,0 +1,20 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+from django.core.management.base import BaseCommand
+
+
+class Command(BaseCommand):
+    help = "This is dummy command."
+
+    def handle(self, *args, **options):
+        self.stdout.write("Command started.")
+
+        if 41 < 42:
+            pass
+        else:
+            pass
+
+        self.stdout.write("Done.")

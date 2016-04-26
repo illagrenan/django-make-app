@@ -1,0 +1,16 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+import logging
+
+from celery.task import task
+
+logger = logging.getLogger(__name__)
+
+@task(name="{{ app_name }}:example_task_1")
+def filter_urls():
+    for i in xrange(42):
+        print(i)
+

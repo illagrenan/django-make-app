@@ -1,0 +1,17 @@
+{% raw %}
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <td>is_published</td>
+            <td>{{ object.is_published }}</td>
+        </tr>
+        <tr>
+            <td>markdown_content</td>
+            <td>{{ object.markdown_content }}</td>
+        </tr>
+    </table>
+{% endblock %}
+<a href="{{ object.get_update_url }}">Edit Article</a>
+{% endraw %}

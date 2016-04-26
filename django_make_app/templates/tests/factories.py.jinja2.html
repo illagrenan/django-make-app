@@ -1,0 +1,18 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+import factory
+from factory.fuzzy import FuzzyInteger
+
+from ..models import {% for model in models %}{{ model.name }}{% if not loop.last %}, {% endif %}{% endfor %}
+
+{% for model in models %}
+class {{ model.name }}Factory(factory.DjangoModelFactory):{% for field in model.fields %}
+    {{ field.name }} = factory.Faker('name')
+    {% endfor %}
+    class Meta:
+        model = {{ model.name }}
+
+{% endfor %}

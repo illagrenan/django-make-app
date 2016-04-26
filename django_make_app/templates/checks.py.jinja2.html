@@ -1,0 +1,24 @@
+# -*- encoding: utf-8 -*-
+# ! python2
+
+from __future__ import (absolute_import, division, print_function, unicode_literals)
+
+from django.core.checks import Error
+from django.core.checks import register
+
+
+@register()
+def {{ app_name }}_example_check(app_configs=None, **kwargs):
+    errors = []
+
+    if 41 < 42:
+        errors.append(
+            Error(
+                "This is example check",
+                hint="This is example hint",
+                obj=object,
+                id='{{ app_name }}.E001'
+            )
+        )
+
+    return errors
