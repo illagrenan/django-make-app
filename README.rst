@@ -18,6 +18,24 @@ Django Make App: *generate Django app from YAML*
      :target: https://requires.io/github/illagrenan/django-make-app/requirements/?branch=master
      :alt: Requirements Status
 
+Introduction
+------------
+
+Django-make-app will generate code of your Django app from a simple YAML schema. This is similar to ``manage.py startapp`` but much powerful.
+
+This will be generated from models definitions:
+
+- Admin classes and admin forms
+- Django REST framework View Sets, Serializers and Router configuration
+- Django AppConfig
+- Django System Checks
+- Forms classes
+- Model classes
+- Detail/Delete/Update/Create/List view, urls and templates
+- Management command example
+- Dummy filter
+- Signals and receivers files
+- TODO tests
 
 Installation
 ------------
