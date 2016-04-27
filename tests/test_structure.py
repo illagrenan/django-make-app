@@ -86,12 +86,14 @@ class StructureTestCase(TestCase):
                             "type": "file",
                             "name": "test_library.py",
                             "template_name": "tests/model_test.jinja2.html",
+                            "_model": {"name": "Library"},
                             "renderer": TemplateRenderer
                         },
                         {
                             "type": "file",
                             "name": "test_book.py",
                             "template_name": "tests/model_test.jinja2.html",
+                            "_model": {"name": "Book"},
                             "renderer": TemplateRenderer
                         },
                         {
