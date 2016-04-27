@@ -6,7 +6,7 @@ from __future__ import (absolute_import, division, print_function, unicode_liter
 from unittest import TestCase
 
 from django_make_app.renderers import TemplateRenderer
-from django_make_app.structure import prepare_structure, SIMPLE_ROOT, get_next_item_name, generate_model_items
+from django_make_app.structure import prepare_structure, SIMPLE_ROOT, get_next_item_name, generate_model_items, generate_template_items
 
 
 class DummyTemplateRenderer(object):
@@ -18,7 +18,7 @@ class DummyTemplateRenderer(object):
 
 
 class StructureTestCase(TestCase):
-    def test_xx(self):
+    def test_prepare_structure(self):
         self.maxDiff = None
 
         in_structure = {
@@ -116,6 +116,60 @@ class StructureTestCase(TestCase):
         }
 
         self.assertDictEqual(expected_structure, prepare_structure(in_structure, in_data))
+
+    def test_generate_model_items(self):
+        model_list = [
+            {
+                "name": "Book"
+            }, {
+                "name": "Library"
+            }
+        ]
+
+        expected = [{"type": "file", "name": "test_book.py", "template_name": "tests/model_test.jinja2.html", "renderer": TemplateRenderer, "_model": {"name": "Book"}},
+                    {"type": "file", "name": "test_library.py", "template_name": "tests/model_test.jinja2.html", "renderer": TemplateRenderer, "_model": {"name": "Library"}}]
+
+        self.assertListEqual(expected, [i for i in generate_model_items(model_list)])
+
+    def test_generate_template_items(self):
+        model_list = [
+            {
+                "name": "Book"
+            }
+        ]
+
+        expected = [
+            {
+                "type": "file",
+                "name": "book_detail.html",
+                "template_name": "templates/detail.jinja2.html",
+                "renderer": TemplateRenderer,
+                "_model": {"name": "Book"}
+            },
+            {
+                "type": "file",
+                "name": "book_form.html",
+                "template_name": "templates/form.jinja2.html",
+                "renderer": TemplateRenderer,
+                "_model": {"name": "Book"}
+            },
+            {
+                "type": "file",
+                "name": "book_list.html",
+                "template_name": "templates/list.jinja2.html",
+                "renderer": TemplateRenderer,
+                "_model": {"name": "Book"}
+            },
+            {
+                "type": "file",
+                "name": "book_delete.html",
+                "template_name": "templates/delete.jinja2.html",
+                "renderer": TemplateRenderer,
+                "_model": {"name": "Book"}
+            }
+        ]
+
+        self.assertListEqual(expected, [i for i in generate_template_items(model_list)])
 
 
 class SimpleFolderTestCase(TestCase):
