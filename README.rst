@@ -50,7 +50,7 @@ Supported Python versions are: ``2.7``, ``3.4``, ``3.5`` and ``pypy``.
 
     pip install --upgrade django-make-app
 
-Python ``3.3`` is not supported due to incompatibility of yapf (see: https://github.com/google/yapf#id3). If you're on Python
+Python ``3.3`` is not supported due to incompatibility of yapf (see: https://github.com/google/yapf#python-versions). If you're on Python
 ``3.3``, you can use this package with option ``django-make-app generate ... --no-optimize`` (this will skip yapf).
 
 Usage

@@ -29,7 +29,7 @@ class SchemaTestCase(TestCase):
         self.maxDiff = None
 
         inn = yaml.load("""
-        app_name: web
+        name: web
         models:
           - User:
             - name:char
@@ -40,7 +40,7 @@ class SchemaTestCase(TestCase):
         """)
 
         outtt = {
-            'app_name': 'web',
+            'name': 'web',
             'models': [
                 {
                     'name': 'User',

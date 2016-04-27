@@ -12,7 +12,8 @@ MODEL_NAME_RE = re.compile(r'^[a-zA-Z_][a-zA-Z0-9_]*$')
 
 
 class YamlSchemaKeywords(object):
-    APP_NAME = "app_name"
+    APPS = "apps"
+    APP_NAME = "name"
     MODELS = "models"
 
 

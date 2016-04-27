@@ -107,15 +107,15 @@ class StructureTestCase(TestCase):
             ]
         }
 
-        in_data = {
-            "app_name": "web_app",
+        in_app_schema = {
+            "name": "web_app",
             "models": [
                 {"name": "Library"},
                 {"name": "Book"}
             ]
         }
 
-        self.assertDictEqual(expected_structure, prepare_structure(in_structure, in_data))
+        self.assertDictEqual(expected_structure, prepare_structure(in_structure, in_app_schema))
 
     def test_generate_model_items(self):
         model_list = [

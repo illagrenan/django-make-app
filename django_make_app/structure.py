@@ -7,6 +7,8 @@ from django_make_app.renderers import TemplateRenderer
 from django_make_app.schema import YamlSchemaKeywords, StructureKeyword
 from django_make_app.utils import is_callable
 
+SIMPLE_ROOT = ""
+
 
 def generate_template_items(model_list):
     operations = ["detail", "form", "list", "delete"]
@@ -36,7 +38,6 @@ def generate_model_items(model_list):
 APP_STRUCTURE = {
     "type": "folder",
     "name": "__app__",
-    "is_package": True,
     "items": [
         {
             "type": "file",
@@ -101,7 +102,6 @@ APP_STRUCTURE = {
         {
             "type": "folder",
             "name": "migrations",
-            "is_package": True,
             "items": [
                 {
                     "type": "file",
@@ -113,12 +113,10 @@ APP_STRUCTURE = {
         {
             "type": "folder",
             "name": "templates",
-            "is_package": False,
             "items": [
                 {
                     "type": "folder",
                     "name": "__app__",
-                    "is_package": False,
                     "items": [
                         generate_template_items
                     ]
@@ -128,7 +126,6 @@ APP_STRUCTURE = {
         {
             "type": "folder",
             "name": "templatetags",
-            "is_package": True,
             "items": [
                 {
                     "type": "file",
@@ -146,7 +143,6 @@ APP_STRUCTURE = {
         {
             "type": "folder",
             "name": "tests",
-            "is_package": True,
             "items": [
                 {
                     "type": "file",
@@ -164,7 +160,6 @@ APP_STRUCTURE = {
         {
             "type": "folder",
             "name": "management",
-            "is_package": True,
             "items": [
                 {
                     "type": "file",
@@ -174,7 +169,6 @@ APP_STRUCTURE = {
                 {
                     "type": "folder",
                     "name": "commands",
-                    "is_package": True,
                     "items": [
                         {
                             "type": "file",
@@ -194,8 +188,6 @@ APP_STRUCTURE = {
     ]
 
 }
-
-SIMPLE_ROOT = ""
 
 
 def get_next_item_name(is_folder, item_name, app_name, current_root):
