@@ -10,7 +10,7 @@ Django Make App: *generate Django app from YAML*
         :target: https://travis-ci.org/illagrenan/django-make-app
         :alt: TravisCI
 
-.. image:: https://coveralls.io/repos/github/illagrenan/django-make-app/badge.svg?branch=master
+.. image:: https://coveralls.io/repos/github/illagrenan/django-make-app/badge.svg?branch=master&1
         :target: https://coveralls.io/github/illagrenan/django-make-app?branch=master
         :alt: Coverage
 
