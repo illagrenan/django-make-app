@@ -7,7 +7,7 @@ from setuptools import setup
 setup(
     name='django_make_app',
     version='0.1.0',
-    description='TODO Add description',
+    description='Define models and fields using YAML and generate app for Django with views, forms, templates etc.',
     long_description=io.open('README.rst').read(),
     url='https://github.com/illagrenan/django-make-app',
     license='MIT',
@@ -42,7 +42,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
-    tests_require=[
-        # TODO: put package test requirements here
-    ]
+    tests_require=[]
 )
