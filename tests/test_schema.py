@@ -8,7 +8,7 @@ from unittest import TestCase
 import yaml
 
 from django_make_app.exceptions import SchemaError
-from django_make_app.schema import normalize_schema, normalize_single_plain_model, validate_model_name, normalize_single_field
+from django_make_app.schema import normalize_schema, validate_model_name, normalize_single_field
 
 
 class SchemaTestCase(TestCase):
