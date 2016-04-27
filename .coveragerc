@@ -1,8 +1,12 @@
 # http://nedbatchelder.com/code/coverage/config.html
 
+[run]
+
+
 [report]
 include = django_make_app/*
+omit = django_make_app/templates/*
 
 exclude_lines =
     # Don't complain if non-runnable code isn't run:
-    if __name__ == "__main__":
+    if __name__ == u'__main__':

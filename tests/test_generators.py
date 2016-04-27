@@ -100,3 +100,31 @@ class GeneratorsTestCase(TestCase):
 
         for path_to_check in expected_generated_items:
             self.assertTrue(os.path.exists(path_to_check), msg="{0} does not exist".format(path_to_check))
+
+    def test_generate_with_invalid_structure(self):
+        this_dir = os.path.dirname(os.path.realpath(__file__))
+        templates_dir = os.path.join(this_dir, "..", "django_make_app", "templates")
+
+        expected_structure = {
+            "type": "folder",
+            "name": "web_app",
+            "items": [
+                {
+                    "type": "unicorn",
+                    "name": "__init__.py",
+                    "template_name": "__init__.py.jinja2.html",
+                    "renderer": TemplateRenderer
+                }
+            ]
+        }
+
+        in_app_schema = {
+            "name": "web_app",
+            "models": [
+                {"name": "Article"},
+                {"name": "Book"}
+            ]
+        }
+
+        app_generator = TemplateFileAppGenerator(self.dirpath, templates_dir, in_app_schema, expected_structure)
+        self.assertRaises(ValueError, app_generator.generate_app)

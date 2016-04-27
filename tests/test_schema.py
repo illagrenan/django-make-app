@@ -24,6 +24,7 @@ class SchemaTestCase(TestCase):
     def test_normalize_single_field(self):
         expected_value = {"name": "my_name", "class": "IntegerField()"}
         self.assertDictEqual(expected_value, normalize_single_field("my_name:integer"))
+        self.assertRaises(SchemaError, normalize_single_field, "my_name:this_type_does_not_exist")
 
     def test_normalization(self):
         self.maxDiff = None
