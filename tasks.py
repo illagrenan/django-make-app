@@ -30,6 +30,7 @@ def test():
 def test_all():
     run("tox")
 
+
 @task
 def test_cov():
     run("py.test --verbose --showlocals --cov=django_make_app tests/")
@@ -43,11 +44,6 @@ def test_setuptools():
 @task
 def test_nosetests():
     run("python setup.py nosetests -v --with-doctest")
-
-
-@task
-def test_all():
-    run("tox")
 
 
 @task
