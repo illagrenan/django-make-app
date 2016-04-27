@@ -70,49 +70,49 @@ This structure will be generated:
 .. code::
 
     LIBRARY
-    │   admin.py
-    │   api.py
-    │   apps.py
-    │   checks.py
-    │   forms.py
-    │   models.py
-    │   receivers.py
-    │   serializers.py
-    │   signals.py
-    │   urls.py
-    │   views.py
-    │   __init__.py
-    │
-    ├───management
-    │   │   __init__.py
-    │   │
-    │   └───commands
-    │           library_command.py
-    │           __init__.py
-    │
-    ├───migrations
-    │       __init__.py
-    │
-    ├───templates
-    │   └───web
-    │           book_delete.html
-    │           book_detail.html
-    │           book_form.html
-    │           book_list.html
-    │           library_delete.html
-    │           library_detail.html
-    │           library_form.html
-    │           library_list.html
-    │           user_delete.html
-    │           user_detail.html
-    │           user_form.html
-    │           user_list.html
-    │
-    ├───templatetags
-    │       web_tags.py
-    │       __init__.py
-    │
-    └───tests
+    |   admin.py
+    |   api.py
+    |   apps.py
+    |   checks.py
+    |   forms.py
+    |   models.py
+    |   receivers.py
+    |   serializers.py
+    |   signals.py
+    |   urls.py
+    |   views.py
+    |   __init__.py
+    |
+    ├---management
+    |   |   __init__.py
+    |   |
+    |   └---commands
+    |           library_command.py
+    |           __init__.py
+    |
+    ├---migrations
+    |       __init__.py
+    |
+    ├---templates
+    |   └---web
+    |           book_delete.html
+    |           book_detail.html
+    |           book_form.html
+    |           book_list.html
+    |           library_delete.html
+    |           library_detail.html
+    |           library_form.html
+    |           library_list.html
+    |           user_delete.html
+    |           user_detail.html
+    |           user_form.html
+    |           user_list.html
+    |
+    ├---templatetags
+    |       web_tags.py
+    |       __init__.py
+    |
+    \---tests
             factories.py
             test_book.py
             test_library.py
