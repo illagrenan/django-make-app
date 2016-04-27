@@ -23,6 +23,11 @@ def lint():
 
 @task
 def test():
+    run("py.test --verbose --showlocals tests/")
+
+
+@task
+def test_cov():
     run("py.test --verbose --showlocals --cov=django_make_app tests/")
 
 
