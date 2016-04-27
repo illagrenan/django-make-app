@@ -59,6 +59,7 @@ Usage
 If you want to generate app called ``library``, create a file ``app_schema.yaml`` in project's root and define models:
 
 .. code:: yaml
+
     apps:
         -
             name: library           # all files will be generated into library/ directory (will be created)
@@ -68,12 +69,12 @@ If you want to generate app called ``library``, create a file ``app_schema.yaml`
                 - email:char        # model field "email" of type "char"
               - Book:               # another model
                 - library:fk        # model field "library" of type "foreign key" to "library"
-              - Library             # empty model without fields
+              - Article             # empty model without fields
         -
             name: my_another_awesome_app
             models:
-                - Foo
-                - Bar
+                - City
+                - Country
 
 You can also print example configuration by:
 
@@ -130,10 +131,10 @@ This structure will be generated:
     |           book_detail.html
     |           book_form.html
     |           book_list.html
-    |           library_delete.html
-    |           library_detail.html
-    |           library_form.html
-    |           library_list.html
+    |           article_delete.html
+    |           article_detail.html
+    |           article_form.html
+    |           article_list.html
     |           user_delete.html
     |           user_detail.html
     |           user_form.html
@@ -146,7 +147,7 @@ This structure will be generated:
     \---tests
             factories.py
             test_book.py
-            test_library.py
+            test_article.py
             test_user.py
             __init__.py
 
