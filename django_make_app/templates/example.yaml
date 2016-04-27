@@ -1,10 +1,15 @@
 apps:
   -
-    name: web
+    name: library           # all files will be generated into library/ directory (will be created)
     models:
-      - User:
-        - name:char
-        - email:char
-      - Book:
-        - library:fk
-      - Library
+      - User:               # model name
+        - name:char         # model field "name" of type "char"
+        - email:char        # model field "email" of type "char"
+      - Book:               # another model
+        - library:fk        # model field "library" of type "foreign key" to "library"
+      - Library             # empty model without fields
+  -
+    name: my_another_awesome_app
+    models:
+      - Foo
+      - Bar

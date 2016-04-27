@@ -135,3 +135,4 @@ $RECYCLE.BIN/
 /activate3.ps1
 /.install
 /activate_install.ps1
+/app_schema.yaml

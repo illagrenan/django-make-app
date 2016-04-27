@@ -56,18 +56,24 @@ Python ``3.3`` is not supported due to incompatibility of yapf (see: https://git
 Usage
 -----
 
-If you want to generate app called ``library``, create a file ``library.yaml`` in project's root and define models:
+If you want to generate app called ``library``, create a file ``app_schema.yaml`` in project's root and define models:
 
 .. code:: yaml
-
-    app_name: library # all files will be generated into library/ directory (will be created)
-    models:
-      - User: # model name
-        - name:char # model field "name" of type "char"
-        - email:char # model field "email" of type "char"
-      - Book: # another model
-        - library:fk # model field "library" of type "foreign key" to "library"
-      - Library # empty model without fields
+    apps:
+        -
+            name: library           # all files will be generated into library/ directory (will be created)
+            models:
+              - User:               # model name
+                - name:char         # model field "name" of type "char"
+                - email:char        # model field "email" of type "char"
+              - Book:               # another model
+                - library:fk        # model field "library" of type "foreign key" to "library"
+              - Library             # empty model without fields
+        -
+            name: my_another_awesome_app
+            models:
+                - Foo
+                - Bar
 
 You can also print example configuration by:
 
