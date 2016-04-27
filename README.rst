@@ -2,14 +2,15 @@
 Django Make App: *generate Django app from YAML*
 ================================================
 
-.. image:: https://badge.fury.io/py/django_make_app.png
+.. image:: https://badge.fury.io/py/django_make_app.svg
         :target: https://pypi.python.org/pypi/django_make_app
         :alt: PyPi
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
         :target: https://pypi.python.org/pypi/django_make_app/
+        :alt: MIT
 
-.. image:: https://api.travis-ci.org/illagrenan/django-make-app.png
+.. image:: https://api.travis-ci.org/illagrenan/django-make-app.svg
         :target: https://travis-ci.org/illagrenan/django-make-app
         :alt: TravisCI
 
