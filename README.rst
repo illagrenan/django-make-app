@@ -105,6 +105,11 @@ This structure will be created for you:
             __init__.py
 
 
+Inspiration
+-----------
+
+- https://github.com/mmcardle/django_builder
+
 License
 -------
 
