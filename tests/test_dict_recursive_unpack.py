@@ -9,7 +9,7 @@ from django_make_app.utils import is_callable
 
 
 def dummy_callable():
-    for _ in xrange(2):
+    for _ in range(2):
         yield {
             "name": "X",
             "nodes": []

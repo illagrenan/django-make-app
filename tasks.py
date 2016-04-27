@@ -27,6 +27,10 @@ def test():
 
 
 @task
+def test_all():
+    run("tox")
+
+@task
 def test_cov():
     run("py.test --verbose --showlocals --cov=django_make_app tests/")
 

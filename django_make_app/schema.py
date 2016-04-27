@@ -8,7 +8,7 @@ import re
 from django_make_app.exceptions import SchemaError
 from django_make_app.utils import is_callable
 
-MODEL_NAME_RE = re.compile(ur'^[a-zA-Z_][a-zA-Z0-9_]*$')
+MODEL_NAME_RE = re.compile(r'^[a-zA-Z_][a-zA-Z0-9_]*$')
 
 
 class YamlSchemaKeywords(object):
@@ -91,7 +91,7 @@ def normalize_single_model(model):
     :type model: dict
     :rtype: dict
     """
-    for model_name, model_fields in model.iteritems():
+    for model_name, model_fields in list(model.items()):
         validate_model_name(model_name)
 
         return {
