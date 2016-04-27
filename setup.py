@@ -16,9 +16,11 @@ setup(
     packages=['django_make_app'],
     install_requires=[
         'pyaml',
-        'click',
         'jinja2',
+        'yapf',
         'glob2'
+        'isort',
+        'click'
     ],
     entry_points={
         'console_scripts': [
