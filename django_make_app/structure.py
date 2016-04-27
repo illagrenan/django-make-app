@@ -17,7 +17,8 @@ def generate_template_items(model_list):
                 "type": "file",
                 "name": "{}_{}.html".format(model.get('name').lower(), operation),
                 "template_name": "templates/{}.jinja2.html".format(operation),
-                "renderer": TemplateRenderer
+                "renderer": TemplateRenderer,
+                "_model": model
             }
 
 
@@ -27,7 +28,8 @@ def generate_model_items(model_list):
             "type": "file",
             "name": "test_{}.py".format(model.get('name').lower()),
             "template_name": "tests/model_test.jinja2.html",
-            "renderer": TemplateRenderer
+            "renderer": TemplateRenderer,
+            "_model": model
         }
 
 
@@ -234,7 +236,7 @@ def prepare_structure(structure_item, app_data, simple_folder_path=SIMPLE_ROOT):
             nodes.append(node_obj)
 
     new_item_name = structure_item.get(StructureKeyword.NAME).replace('__app__', app_name)
-    aaaa = get_next_item_name(is_folder, new_item_name, app_name, simple_folder_path)
+    next_item_simple_path = get_next_item_name(is_folder, new_item_name, app_name, simple_folder_path)
 
     return_dict = dict(structure_item)
     return_dict.update({
@@ -243,13 +245,13 @@ def prepare_structure(structure_item, app_data, simple_folder_path=SIMPLE_ROOT):
 
     if StructureKeyword.TEMPLATE_NAME not in return_dict and is_file:
         return_dict.update({
-            StructureKeyword.TEMPLATE_NAME: "{}{}.jinja2.html".format(aaaa, new_item_name)
+            StructureKeyword.TEMPLATE_NAME: "{}{}.jinja2.html".format(next_item_simple_path, new_item_name)
         })
 
     if nodes:
         # Prevent empty [] for better readability
         return_dict.update({
-            StructureKeyword.ITEMS: [prepare_structure(node, app_data, aaaa) for node in nodes]
+            StructureKeyword.ITEMS: [prepare_structure(node, app_data, next_item_simple_path) for node in nodes]
         })
 
     return return_dict

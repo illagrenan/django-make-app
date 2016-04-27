@@ -1,17 +1,39 @@
-{% raw %}
-{% extends "base.html" %}
+[% extends "base.html" %]
 
-{% block content %}
-    <table class="table">
-        <tr>
-            <td>is_published</td>
-            <td>{{ object.is_published }}</td>
-        </tr>
-        <tr>
-            <td>markdown_content</td>
-            <td>{{ object.markdown_content }}</td>
-        </tr>
-    </table>
-{% endblock %}
-<a href="{{ object.get_update_url }}">Edit Article</a>
-{% endraw %}
+[% load i18n %]
+[% load crispy_forms_tags %]
+
+[% block title %]
+    [% if object.pk %]
+        [% trans "Edit" %] [[ object ]]
+    [% else %]
+        [% trans "Create new" %]
+    [% endif %]
+[% endblock %]
+
+[% block content %]
+    <h1>
+        [% if object.pk %]
+            [% trans "Edit" %] [[ object ]]
+        [% else %]
+            [% trans "Create new" %]
+        [% endif %] ({{ current_model.name }})
+    </h1>
+
+    <p>
+        <a href="[[ object.get_absolute_url ]]">[% trans "Back to detail" %]</a> /
+        <a href="[% url "{{ app_name }}:list_{{ current_model.name|lower }}" %]">[% trans "Back to list" %]</a>
+    </p>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        [% csrf_token %]
+
+        <div>
+            [[ form|crispy ]]
+        </div>
+
+        <input type="submit" class="btn btn-success" value="[% trans "Save" %]">
+        <a href="[% url "{{ app_name }}:list_{{ current_model.name|lower }}" %]" class="btn btn-default">[% trans "Cancel" %]</a>
+    </form>
+[% endblock %]
+

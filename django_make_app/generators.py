@@ -33,7 +33,7 @@ class TemplateFileAppGenerator(object):
         self._create_app_structure(self._base_directory, self._app_structure)
 
     def _render(self, rendered_class, item):
-        return rendered_class(templates_directory=self._templates_directory, template_name=item.get(StructureKeyword.TEMPLATE_NAME)).render(context=self._app_data)
+        return rendered_class(templates_directory=self._templates_directory, template_name=item.get(StructureKeyword.TEMPLATE_NAME), item=item).render(context=self._app_data)
 
     def _create_app_structure(self, base_directory, structure):
         item_type = structure.get(StructureKeyword.TYPE)

@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 # ! python2
 
-from __future__ import (absolute_import, division, print_function, unicode_literals)
+from __future__ import (absolute_import, division, print_function)
 
 import sys
 
-from django_make_app.runner import main
+from django_make_app.runner import cli
 
-main(sys.argv[1:])
+cli(sys.argv[1:])

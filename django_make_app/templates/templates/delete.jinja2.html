@@ -1,17 +1,25 @@
-{% raw %}
-{% extends "base.html" %}
+[% extends "base.html" %]
 
-{% block content %}
-    <table class="table">
-        <tr>
-            <td>is_published</td>
-            <td>{{ object.is_published }}</td>
-        </tr>
-        <tr>
-            <td>markdown_content</td>
-            <td>{{ object.markdown_content }}</td>
-        </tr>
-    </table>
-{% endblock %}
-<a href="{{ object.get_update_url }}">Edit Article</a>
-{% endraw %}
+[% load i18n %]
+
+[% block title %]
+[% trans "Delete" %] [[ object ]] ({{ current_model.name }})
+[% endblock %]
+
+[% block content %]
+<h1>
+    [% trans "Delete" %] [[ object ]] ({{ current_model.name }})
+</h1>
+
+<div class="alert alert-danger" role="alert">
+    <p>[% trans "Are you sure to delete this item?" %] "[[ object ]]"?</p>
+</div>
+
+<form action="" method="post">
+    [% csrf_token %]
+
+    <input type="submit" class="btn btn-danger" value="[% trans " Delete" %]"/>
+    <a href="[% url " {{ app_name }}:list_{{ current_model.name|lower }}" %]" class="btn btn-default">[% trans "Cancel" %]</a>
+</form>
+[% endblock %]
+

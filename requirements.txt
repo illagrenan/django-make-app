@@ -3,7 +3,7 @@
 # - - - - - - - - - - - - - - - -
 invoke
 coverage
-nose
+pytest==2.9.1
 wheel>=0.29.0
 setuptools>=20.10.1
 docutils

@@ -23,7 +23,7 @@ def lint():
 
 @task
 def test():
-    run("nosetests --with-doctest")
+    run("py.test --verbose --showlocals --cov=django_make_app tests/")
 
 
 @task

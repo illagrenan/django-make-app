@@ -20,7 +20,7 @@ setup(
         'jinja2'],
     entry_points={
         'console_scripts': [
-            'django-make-app=django_make_app.runner:main'
+            'django-make-app=django_make_app.runner:cli'
         ],
     },
     include_package_data=True,

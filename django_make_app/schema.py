@@ -8,7 +8,7 @@ import re
 from django_make_app.exceptions import SchemaError
 from django_make_app.utils import is_callable
 
-p = re.compile(ur'^[a-zA-Z_][a-zA-Z0-9_]*$')
+MODEL_NAME_RE = re.compile(ur'^[a-zA-Z_][a-zA-Z0-9_]*$')
 
 
 class YamlSchemaKeywords(object):
@@ -57,16 +57,16 @@ def normalize_single_field(field):
     :type field: unicode
     :rtype: dict
     """
-    f_name, f_type = field.split(":")
+    field_name, field_type = field.split(":")
 
-    if not f_type or f_type not in MAPPINGS:
-        raise SchemaError("Type {} is invalid".format(f_type))
+    if not field_type or field_type not in MAPPINGS:
+        raise SchemaError("Type {} is invalid".format(field_type))
 
-    get = MAPPINGS.get(f_type)
+    field_class = MAPPINGS.get(field_type)
 
     return {
-        "name": f_name,
-        "class": get(f_name) if is_callable(get) else get
+        "name": field_name,
+        "class": field_class(field_name) if is_callable(field_class) else field_class
     }
 
 
@@ -79,9 +79,9 @@ def normalize_fields(fields):
         yield normalize_single_field(field)
 
 
-def validate_model_name(m):
-    if not re.search(p, m):
-        raise SchemaError("\"{}\" is not a valid name of Django model.".format(m))
+def validate_model_name(model_name):
+    if not re.search(MODEL_NAME_RE, model_name):
+        raise SchemaError("\"{}\" is not a valid name of Django model.".format(model_name))
 
 
 def normalize_single_model(model):
