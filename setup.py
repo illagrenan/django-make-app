@@ -17,7 +17,9 @@ setup(
     install_requires=[
         'pyaml',
         'click',
-        'jinja2'],
+        'jinja2',
+        'glob2'
+    ],
     entry_points={
         'console_scripts': [
             'django-make-app=django_make_app.runner:cli'
