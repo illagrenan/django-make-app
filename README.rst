@@ -8,6 +8,8 @@ Django Make App: *generate Django app from YAML*
 .. image:: https://img.shields.io/travis/illagrenan/django-make-app.svg
         :target: https://travis-ci.org/illagrenan/django-make-app
 
+.. image:: https://coveralls.io/repos/github/illagrenan/django-make-app/badge.svg?branch=master :target: https://coveralls.io/github/illagrenan/django-make-app?branch=master 
+
 .. image:: https://requires.io/github/illagrenan/django-make-app/requirements.svg?branch=master
      :target: https://requires.io/github/illagrenan/django-make-app/requirements/?branch=master
      :alt: Requirements Status
