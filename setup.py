@@ -18,7 +18,7 @@ setup(
         'pyaml',
         'jinja2',
         'yapf',
-        'glob2'
+        'glob2',
         'isort',
         'click'
     ],
