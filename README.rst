@@ -11,7 +11,7 @@ Django Make App: *generate Django app from YAML*
         :alt: TravisCI
 
 .. image:: https://coveralls.io/repos/github/illagrenan/django-make-app/badge.svg?branch=master
-        :target: https://coveralls.io/github/illagrenan/django-make-app?branch=master 
+        :target: https://coveralls.io/github/illagrenan/django-make-app?branch=master
         :alt: Coverage
 
 .. image:: https://requires.io/github/illagrenan/django-make-app/requirements.svg?branch=master
@@ -22,7 +22,7 @@ Django Make App: *generate Django app from YAML*
 Installation
 ------------
 
-This package is not yet on PyPI. Supported Python versions are: ``2.7``, ``3.3``, ``3.4`` and ``3.5``.
+This package is not yet on PyPI. Supported Python versions are: ``2.7``, ``3.3``, ``3.4``, ``3.5`` and ``pypy``.
 
 .. code:: shell
 
@@ -31,18 +31,24 @@ This package is not yet on PyPI. Supported Python versions are: ``2.7``, ``3.3``
 Usage
 -----
 
-If you want generate app ``library``, create ``library.yaml`` in project root.
+If you want to generate app called ``library``, create a file ``library.yaml`` in project's root and define models:
 
 .. code:: yaml
 
-    app_name: library
+    app_name: library # all files will be generated into library/ directory (will be created)
     models:
-      - User:
-        - name:char
-        - email:char
-      - Book:
-        - library:fk
-      - Library
+      - User: # model name
+        - name:char # model field "name" of type "char"
+        - email:char # model field "email" of type "char"
+      - Book: # another model
+        - library:fk # model field "library" of type "foreign key" to "library"
+      - Library # empty model without fields
+
+You can also print example configuration by:
+
+.. code:: shell
+
+    django-make-app write_config
 
 Now execute:
 
@@ -50,7 +56,16 @@ Now execute:
 
     django-make-app generate library
 
-This structure will be created for you:
+Or run this if you need help:
+
+.. code:: shell
+
+    django-make-app --help
+    django-make-app generate --help
+    django-make-app write_config --help
+
+
+This structure will be generated:
 
 .. code::
 
