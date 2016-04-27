@@ -34,8 +34,8 @@ This will be generated from models definitions:
 - Django AppConfig
 - Django System Checks
 - Forms classes
-- Model classes
-- Detail/Delete/Update/Create/List view, urls and templates
+- Models classes
+- Detail/Delete/Update/Create/List views, urls and templates
 - Management command example
 - Dummy filter
 - Signals and receivers files
@@ -76,26 +76,17 @@ If you want to generate app called ``library``, create a file ``app_schema.yaml`
                 - City
                 - Country
 
-You can also print example configuration by:
+You can also print example configuration by executing (or check `templates/example.yaml <https://github.com/illagrenan/django-make-app/blob/master/django_make_app/templates/example.yaml>`__):
 
 .. code:: shell
 
     django-make-app write_config
 
-Now execute:
+Finally to generate source code of your app, execute:
 
 .. code:: shell
 
     django-make-app generate library
-
-Or run this if you need help:
-
-.. code:: shell
-
-    django-make-app --help
-    django-make-app generate --help
-    django-make-app write_config --help
-
 
 This structure will be generated:
 
