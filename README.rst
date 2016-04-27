@@ -22,15 +22,36 @@ Django Make App: *generate Django app from YAML*
      :target: https://requires.io/github/illagrenan/django-make-app/requirements/?branch=master
      :alt: Requirements Status
 
+Introduction
+------------
+
+Django-make-app will generate code of your Django app from a simple YAML schema. This is similar to ``manage.py startapp`` but much powerful.
+
+This will be generated from models definitions:
+
+- Admin classes and admin forms
+- Django REST framework View Sets, Serializers and Router configuration
+- Django AppConfig
+- Django System Checks
+- Forms classes
+- Model classes
+- Detail/Delete/Update/Create/List view, urls and templates
+- Management command example
+- Dummy filter
+- Signals and receivers files
+- TODO tests
 
 Installation
 ------------
 
-This package is not yet on PyPI. Supported Python versions are: ``2.7``, ``3.3``, ``3.4``, ``3.5`` and ``pypy``.
+This package is not yet on PyPI. Supported Python versions are: ``2.7``, ``3.4``, ``3.5`` and ``pypy``.
 
 .. code:: shell
 
     pip install --upgrade git+git://github.com/illagrenan/django-make-app.git#egg=django-make-app
+
+Python ``3.3`` is not supported due to incompatibility of yapf (see: https://github.com/google/yapf#id3). If you're on Python
+3.3, you can use this package with option ``django-make-app generate ... --no-optimize`` (this will skip yapf).
 
 Usage
 -----
