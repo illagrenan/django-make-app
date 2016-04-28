@@ -5,6 +5,7 @@ include LICENSE
 include README.rst
 
 recursive-include tests *
+recursive-include django_make_app/templates *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 

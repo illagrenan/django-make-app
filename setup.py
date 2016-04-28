@@ -6,12 +6,12 @@ from setuptools import setup
 
 setup(
     name='django_make_app',
-    version='0.1.1',
+    version='0.1.2',
     description='Define models and fields using YAML and generate app for Django with views, forms, templates etc.',
     long_description=io.open('README.rst').read(),
     url='https://github.com/illagrenan/django-make-app',
     license='MIT',
-    author='Vašek Dohnal',
+    author='Vasek Dohnal',
     author_email='vaclav.dohnal@gmail.com',
     packages=['django_make_app'],
     install_requires=[
