@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='django_make_app',
-    version='0.1.2',
+    version='0.1.2.1',
     description='Define models and fields using YAML and generate app for Django with views, forms, templates etc.',
     long_description=io.open('README.rst').read(),
     url='https://github.com/illagrenan/django-make-app',
