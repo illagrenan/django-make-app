@@ -106,18 +106,18 @@ This structure will be generated:
     |   views.py
     |   __init__.py
     |
-    ├---management
+    |---management
     |   |   __init__.py
     |   |
-    |   └---commands
+    |   \---commands
     |           library_command.py
     |           __init__.py
     |
-    ├---migrations
+    |---migrations
     |       __init__.py
     |
-    ├---templates
-    |   └---web
+    |---templates
+    |   \---web
     |           book_delete.html
     |           book_detail.html
     |           book_form.html
@@ -131,7 +131,7 @@ This structure will be generated:
     |           user_form.html
     |           user_list.html
     |
-    ├---templatetags
+    |---templatetags
     |       web_tags.py
     |       __init__.py
     |
