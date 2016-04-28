@@ -80,7 +80,7 @@ You can also print example configuration by executing (or check `templates/examp
 
 .. code:: shell
 
-    django-make-app write_config
+    django-make-app write_config > app_schema.yaml
 
 Finally to generate source code of your app, execute:
 
