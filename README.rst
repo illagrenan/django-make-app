@@ -44,7 +44,7 @@ This will be generated from models definitions:
 Installation
 ------------
 
-Supported Python versions are: ``2.7``, ``3.4``, ``3.5`` and ``pypy``.
+Supported Python versions are: ``2.7``, ``3.4``, ``3.5``, ``3.6``, ``pypy`` and ``pypy3``.
 
 .. code:: shell
 
