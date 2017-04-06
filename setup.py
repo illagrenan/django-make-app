@@ -8,7 +8,7 @@ setup(
     name='django_make_app',
     version='0.1.3',
     description='Define models and fields using YAML and generate app for Django with views, forms, templates etc.',
-    long_description=io.open('README.rst').read(),
+    long_description=io.open('README.rst', encoding='utf-8').read(),
     url='https://github.com/illagrenan/django-make-app',
     license='MIT',
     author='Vasek Dohnal',
