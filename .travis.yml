@@ -9,7 +9,6 @@ python:
   - "3.7-dev" # 3.7 development branch
   - "nightly" # currently points to 3.7-dev
   - "pypy"
-  - "pypy3"
 install:
     - pip install coveralls
     - pip install -r requirements.txt
