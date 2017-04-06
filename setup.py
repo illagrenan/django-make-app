@@ -30,6 +30,7 @@ setup(
     include_package_data=True,
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
+        'Framework :: Django',
         'Intended Audience :: Developers',
         'Environment :: Console',
         'License :: OSI Approved :: MIT License',
@@ -40,6 +41,10 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy'
     ],
     test_suite='tests',
     tests_require=[]
