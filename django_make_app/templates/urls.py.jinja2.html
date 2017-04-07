@@ -3,7 +3,7 @@
 
 from __future__ import (absolute_import, division, print_function, unicode_literals)
 
-from django.conf.urls import patterns, url, include
+from django.conf.urls import include, url
 from rest_framework import routers
 
 from .api import {% for model in models %}{{ model.name }}ViewSet{% if not loop.last %}, {% endif %}{% endfor %}
